@@ -1,0 +1,195 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Calculator
+{
+    public partial class Form1 : Form
+    {
+        string a;
+        string b;
+        int skaicius1;
+        int skaicius2;
+        int veiksmo_id;
+        int rezultatas = 0;
+        public Form1()
+        {
+            InitializeComponent();
+           
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void skaicius1btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 1;
+            prirasymas(naujas);    
+        }
+
+
+        private void skaicius2btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 2;
+            prirasymas(naujas);
+        }
+
+        private void skaicius3btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 3;
+            prirasymas(naujas);
+
+        }
+
+        private void skaicius4btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 4;
+            prirasymas(naujas);
+
+        }
+
+        private void skaicius5btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 5;
+            prirasymas(naujas);
+
+        }
+
+        private void skaicius6btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 6;
+            prirasymas(naujas);
+        }
+
+        private void skaicius7btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 7;
+            prirasymas(naujas);
+
+        }
+
+        private void skaicius8btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 8;
+            prirasymas(naujas);
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            int naujas = 9;
+            prirasymas(naujas);
+
+        }
+
+        private void skaiciusCbtn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            outputtb.Text = "0";
+      
+ 
+
+        }
+
+        private void skaicius0btn_Click(object sender, EventArgs e)
+        {
+            nunulimas();
+            String output = outputtb.Text;
+            if (outputtb.Text.Length < 10)
+            {
+               
+                if (output == "0")
+                    outputtb.Text = "0";
+                else outputtb.Text = "" + output + "0";
+            }
+            Console.WriteLine(output);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+            a = outputtb.Text;
+            veiksmo_id = 1;
+            outputtb.Text = "0";
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+            a = outputtb.Text;
+            veiksmo_id = 2;
+            outputtb.Text = "0";
+        }
+        private void veiksmasRezultatas_Click(object sender, EventArgs e)
+        {
+            b = outputtb.Text;
+            if (a == null)
+            {
+                a = "1";
+            }
+                
+            skaicius1 = Int32.Parse(a);
+            skaicius2 = Int32.Parse(b);
+            switch (veiksmo_id)
+            {
+                case 1:
+                       rezultatas=skaicius1 + skaicius2;
+                    break;
+                case 2:
+                    rezultatas= skaicius1* skaicius2;
+                    break;
+            }
+            if (rezultatas < 0 || rezultatas > 2147483647)
+            { rezultatas = 0;
+                label1.Text = ("Gautas skaičius nėra iš intervalo [0:2147483647)");
+            }
+            outputtb.Text = rezultatas.ToString();
+
+        }
+
+        
+        private void nunulimas()
+        {
+            if (rezultatas > 0)
+            {
+                rezultatas = 0;
+                outputtb.Text = "0";
+            }
+        }
+        private void prirasymas(int naujas)
+        {
+            String output = outputtb.Text;
+            if (outputtb.Text.Length < 8)
+            {
+                if (output == "0")
+                {
+                    output = "";
+                    outputtb.Text = "" + output + naujas;
+                }
+                else outputtb.Text = "" + output + naujas;
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://plus.google.com/u/0/113006179771582878588/posts");
+        }
+    }
+}
